@@ -45,15 +45,20 @@ time.sleep(2)
 login()
 
 time.sleep(2)
-btn = WebDriverWait(driver, 30).until(
-        EC.presence_of_element_located((By.ID, "NextButton"))
-    )
-btn.click()
+driver.switch_to.frame("duo_iframe")
+idBtn = driver.find_elements_by_xpath('//*[@id="auth_methods"]/fieldset[2]/div/button')
+idBtn[0].click()
+# touchIDbttn = driver.find_element_by_xpath('/html/body/div/div/div[1]/div/form/div[1]/fieldset[2]/div/button')
+# touchIDbttn.click()
+# btn = WebDriverWait(driver, 30).until(
+#         EC.presence_of_element_located((By.ID, "NextButton"))
+#     )
+# btn.click()
 
-time.sleep(1)
-next()
+# time.sleep(1)
+# next()
 
-answers = ['QID215-2-label', 'QID207-4-label', 'QID2-1-label', 'QID12-2-label', 'QID3-2-label', 'QID3-2-label']
+# answers = ['QID215-2-label', 'QID207-4-label', 'QID2-1-label', 'QID12-2-label', 'QID3-2-label', 'QID3-2-label']
 
-for answer in answers:
-    doQuestion(answer, 1)
+# for answer in answers:
+#     doQuestion(answer, 1)
