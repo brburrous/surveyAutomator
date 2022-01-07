@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 load_dotenv()
 import time
 
-code = getCode("data.txt")
 
 driver = webdriver.Chrome()
 link = "https://uclasurveys.co1.qualtrics.com/jfe/form/SV_3qRLtouCYKzBbH7"
@@ -31,13 +30,19 @@ def login():
     submitButton = driver.find_element_by_xpath('//*[@id="sso"]/form/div/table/tbody/tr/td[1]/button')
     submitButton.click()
 
-def duoPush(code):
+def duoPush():
     iframe = driver.find_element_by_tag_name("iframe")
     driver.switch_to.frame(iframe)
     submitBtn = driver.find_element_by_id("passcode")
     submitBtn.click()
+    time.sleep(1)
+    msg = driver.find_element_by_class_name("next-passcode-msg").text
+    index = msg[-1]
+    code = getCode("data.txt", index)
     driver.find_element_by_xpath('//*[@id="auth_methods"]/fieldset/div[2]/div/input').send_keys(code)
     submitBtn.click()
+    driver.switch_to.default_content()
+
 
 def next():
     nextButton = driver.find_element_by_id('NextButton')
@@ -49,11 +54,12 @@ def doQuestion(ans, pause):
     choice.click()
     next()
 
+
 time.sleep(4)
 login()
 
 time.sleep(2)
-duoPush(code)
+duoPush()
 
 
 
