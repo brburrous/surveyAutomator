@@ -13,7 +13,7 @@ driver = webdriver.Chrome()
 link = "https://uclasurveys.co1.qualtrics.com/jfe/form/SV_3qRLtouCYKzBbH7"
 driver.get(link)
 
-time.sleep(2)
+time.sleep(1)
 studentSurveyButton = driver.find_element_by_id('QID3-2-label')
 studentSurveyButton.click()
 nextButton = driver.find_element_by_id('NextButton')
@@ -59,20 +59,20 @@ time.sleep(4)
 login()
 
 time.sleep(2)
-duoPush()
+# duoPush()
 
 
 
-time.sleep(2)
-btn = WebDriverWait(driver, 30).until(
-        EC.presence_of_element_located((By.ID, "NextButton"))
-    )
-btn.click()
+# time.sleep(2)
+# btn = WebDriverWait(driver, 30).until(
+#         EC.presence_of_element_located((By.ID, "NextButton"))
+#     )
+# btn.click()
 
-time.sleep(1)
-next()
+# time.sleep(1)
+# next()
 
-answers = ['QID215-2-label', 'QID207-4-label', 'QID2-1-label', 'QID12-2-label', 'QID3-2-label', 'QID3-2-label']
+# answers = ['QID215-2-label', 'QID207-4-label', 'QID2-1-label', 'QID12-2-label', 'QID3-2-label', 'QID3-2-label']
 
-for answer in answers:
-    doQuestion(answer, 1.5)
+# for answer in answers:
+#     doQuestion(answer, 1.5)

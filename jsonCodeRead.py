@@ -6,8 +6,8 @@ def getCode(file, index):
         if data['codes']:
             codes = data['codes']
         else:
-            codesRaw = input("Give me some codes: \n")
-            codes = codesRaw.split()[2:-1]
+            codesRaw = input("Give me some codes: \n").split()
+            codes = codesRaw[2:len(codesRaw)]
             data["codes"] = codes
     code = list(filter(lambda x: x.startswith(index), codes))[0]
     with open('data.txt', 'w') as outfile:
