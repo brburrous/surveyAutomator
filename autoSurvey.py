@@ -14,7 +14,7 @@ link = "https://secure.ctsext.it.ucla.edu/UCLACovidClearance/"
 link2 = "https://uclasurveys.co1.qualtrics.com/jfe/form/SV_3qRLtouCYKzBbH7"
 driver.get(link2)
 
-
+time.sleep(2)
 studentSurveyButton = driver.find_element_by_id('QID3-2-label')
 studentSurveyButton.click()
 nextButton = driver.find_element_by_id('NextButton')
