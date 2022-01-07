@@ -41,7 +41,7 @@ def doQuestion(ans, pause):
     choice.click()
     next()
 
-time.sleep(2)
+time.sleep(4)
 login()
 
 time.sleep(2)
